@@ -50,6 +50,8 @@ app.use('/reservation', reservationRouter);
 app.use('/voyage', voyageRouter);
 app.use('/activite', activiteRouter);
 app.use('/auth', require('./routes/auth'));
+app.use('/commentaire', require('./routes/commentaire'));
+app.use('/article', require('./routes/article'));
 
 
 // catch 404 and forward to error handler

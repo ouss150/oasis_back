@@ -1,15 +1,18 @@
 const mongose = require("mongoose");
-const Schema = mongose.Schema();
+const Schema = mongose.Schema;
 
-const CommentaireScheme = Schema({
+const CommentaireSchema = Schema({
     message : String,
-    destinataire : {
+    auteur : {
         type : mongose.Types.ObjectId,
-        ref : "User",
+        ref : "Users",
     },
-    expediteur : {
+    article : {
         type : mongose.Types.ObjectId,
-        ref : "User",   
-    }
-
+        ref : "Article",
+    },
 });
+
+const CommentaireModel = mongose.model("Commenentaire", CommentaireSchema);
+
+module.exports= CommentaireModel;

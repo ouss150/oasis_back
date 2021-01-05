@@ -5,8 +5,14 @@ const UsersSchema = new Schema({
     name: String,
     civilite: String,
     prenom: String,
-    password: String,
-    email: String,
+    password: {
+        type : String,
+        required : true
+    },
+    email: {
+        type : String,
+        required : true
+    },
     telephone : String,
     adresse: String
 })
