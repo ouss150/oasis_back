@@ -3,6 +3,7 @@ const Schema = mongose.Schema;
 
 const CommentaireSchema = Schema({
     message : String,
+    ajoute_le : Date,
     auteur : {
         type : mongose.Types.ObjectId,
         ref : "Users",
@@ -13,6 +14,6 @@ const CommentaireSchema = Schema({
     },
 });
 
-const CommentaireModel = mongose.model("Commenentaire", CommentaireSchema);
+const CommentaireModel = mongose.model("Commentaire", CommentaireSchema);
 
 module.exports= CommentaireModel;

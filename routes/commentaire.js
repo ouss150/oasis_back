@@ -21,7 +21,8 @@ router.patch('/update/:id', async (req, res) => {
     res.json(commentaireUpdated)
 })
 
-router.post('/delete/:id', async (req, res) => {
+
+router.delete('/delete/:id', async (req, res) => {
     const commentaireDeleted = await commentaireModel.findByIdAndDelete(req.params.id);
     res.json(commentaireDeleted);
 })
@@ -30,6 +31,13 @@ router.get('/getByArticle/:id', async (req, res) => {
     const allCommentaires = await commentaireModel.find().populate('article').populate('auteur');
     const articleId = req.params.id
     const filteredCommentaires = allCommentaires.filter(commentaire => commentaire.article._id == articleId)
+    res.json(filteredCommentaires);
+})
+
+router.get('/getByUser/:id', async (req, res) => {
+    const allCommentaires = await commentaireModel.find().populate('article').populate('auteur');
+    const userid = req.params.id
+    const filteredCommentaires = allCommentaires.filter(commentaire => commentaire.auteur._id == userid)
     res.json(filteredCommentaires);
 })
 

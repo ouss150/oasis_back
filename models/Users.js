@@ -14,7 +14,12 @@ const UsersSchema = new Schema({
         required : true
     },
     telephone : String,
-    adresse: String
+    adresse: String,
+    role : {
+        type: String,
+        enum:["admin", "user"],
+        default : "user"
+    }
 })
 
 const UsersModel = mongoose.model("Users",UsersSchema);

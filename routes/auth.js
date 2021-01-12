@@ -129,4 +129,8 @@ router.post("/signup", uploader.single("avatar"), async (req, res, next) => {
   }
 });
 
+router.post("/edit/:id", uploader.single("avatar"), async (req, res, next) => {
+  
+});
+
 module.exports = router;
